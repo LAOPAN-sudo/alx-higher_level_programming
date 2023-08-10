@@ -1,2 +1,3 @@
-#!/bin/bash
-python3 - c "print('#pythoniscool')"
+#!/usr/bin/env python3
+
+print("#pythoniscool\n")
