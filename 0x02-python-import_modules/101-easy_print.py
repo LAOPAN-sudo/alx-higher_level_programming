@@ -1,3 +1,3 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 
-print("#pythoniscool\n")
+__import__("os").write(1, "#pythoniscool\n".encode("UTF-8"))
