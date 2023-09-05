@@ -120,7 +120,7 @@ class Rectangle:
         Return the string representation of the Rectangle.
 
         Returns:
-            str: The string representation of the Rectangle in the format.
+            str: The string rep the Rec in the format "Rec(width, height)".
         """
         return f"Rectangle({self.__width}, {self.__height})"
 
