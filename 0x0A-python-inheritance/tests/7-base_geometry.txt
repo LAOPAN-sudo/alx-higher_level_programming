@@ -1,0 +1,39 @@
+import unittest
+from io import StringIO
+from contextlib import redirect_stdout
+from 7-base_geometry import BaseGeometry
+
+class TestBaseGeometry(unittest.TestCase):
+    def setUp(self):
+        self.bg = BaseGeometry()
+
+    def test_area_not_implemented(self):
+        with self.assertRaises(Exception) as context:
+            self.bg.area()
+        self.assertEqual(
+            str(context.exception), "area() is not implemented")
+
+    def test_integer_validator_valid_input(self):
+        with redirect_stdout(StringIO()) as output:
+            self.bg.integer_validator("my_int", 12)
+        self.assertEqual(output.getvalue(), "")
+
+    def test_integer_validator_invalid_type(self):
+        with self.assertRaises(TypeError) as context:
+            self.bg.integer_validator("name", "John")
+        self.assertEqual(
+            str(context.exception), "name must be an integer")
+
+    def test_integer_validator_invalid_value(self):
+        with self.assertRaises(ValueError) as context:
+            self.bg.integer_validator("age", 0)
+        self.assertEqual(
+            str(context.exception), "age must be greater than 0")
+
+        with self.assertRaises(ValueError) as context:
+            self.bg.integer_validator("distance", -4)
+        self.assertEqual(
+            str(context.exception), "distance must be greater than 0")
+
+if __name__ == "__main__":
+    unittest.main()
