@@ -4,16 +4,13 @@ const myObject = {
   value: 12
 };
 console.log(myObject);
+// This line outputs the initial content of the "myObject" to the console.
 
-/*
-adding line below prints as a result:
-{ type: 'object', value: 12 }
-{ type: 'object', value: 13, incr: [Function] }
-{ type: 'object', value: 14, incr: [Function] }
-{ type: 'object', value: 15, incr: [Function] }
-*/
-myObject.incr = function () { this.value += 1; };
-
+myObject.incr = function () {
+  // This line adds a method named "incr" to the "myObject".
+  this.value++;
+  // This method increments the value of "value" property of "myObject" by 1
+};
 myObject.incr();
 console.log(myObject);
 myObject.incr();
